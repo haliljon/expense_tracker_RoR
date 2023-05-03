@@ -1,0 +1,26 @@
+<h1>List of categories</h1>
+
+<% if @categories.empty? %>
+  <p>There are no categories yet.</p>
+<% else %>
+    <table id="categories">
+        <thead>
+            <tr>
+                <th>Icon</th>
+                <th>Name</th>
+                <th>Total expenses</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @categories.each do |category| %>
+        <tr>
+            <td><img src="<%= category.icon %>" alt="<%= category.name %>" width="100" height="100" /></td>
+            <td><%= link_to category.name, category_expenses_path(category) %></td>
+            <td><p><%= category.total_expenses %></p></td>
+        </tr>
+        <% end %>
+        </tbody>
+    </table>
+<% end %>
+
+<%= link_to 'New Category', new_category_path %>

@@ -6,7 +6,6 @@ class Ability
 
     # If the user is not logged in, they can't access any action or resource.
     cannot :manage, :all if user.new_record?
-    
 
     # Define abilities for the passed in user here. For example:
     #

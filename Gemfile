@@ -71,5 +71,6 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'devise'
 gem 'cancancan', '~> 1.9'
+
+gem 'devise'

@@ -1,1 +1,22 @@
-<h1>Expenses page<h1>
+<h1><%= @category.name %> Expenses</h1>
+
+<p>Total expenses: <%= @category.total_expenses %></p>
+<table>
+ <thead>
+    <tr>
+     <th>Expense</th>
+     <th>Amount</th>
+    </tr>
+ </thead>
+ <tbody>
+    <% @expenses.each do |expense| %>
+        <tr>
+        <td><%= expense.name %></td>
+        <td>$ <%= expense.amount %></td>
+        </tr>
+    <% end %>
+ </tbody>
+</table>
+
+<%= link_to 'Back', categories_path %> |
+<%= link_to 'New Expense', new_category_expense_path(@category) %>

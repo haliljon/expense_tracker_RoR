@@ -1,0 +1,29 @@
+<% if @expense.errors.any? %>
+    <h2>The following errors prevented the category from being saved:</h2>
+    <ul>
+        <% @expense.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_with(model: @expense, url: category_expenses_path, local: true) do |form| %>
+    <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+        <%= form.label :Enter_amount %>
+        <%= form.text_field :amount %>
+    </div>
+
+    <div class="field">
+        <%= form.label :Choose_a_category %>
+        <%= form.collection_select :category_id, Category.all, :id, :name %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit %>
+    </div>
+<% end %>

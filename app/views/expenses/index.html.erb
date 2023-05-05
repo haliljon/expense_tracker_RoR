@@ -1,22 +1,36 @@
-<h1><%= @category.name %> Expenses</h1>
+<h2 class="mb-3"><%= @category.name %> Expenses</h2>
 
 <p>Total expenses: <%= @category.total_expenses %></p>
-<table>
- <thead>
-    <tr>
-     <th>Expense</th>
-     <th>Amount</th>
-    </tr>
- </thead>
- <tbody>
-    <% @expenses.each do |expense| %>
-        <tr>
-        <td><%= expense.name %></td>
-        <td>$ <%= expense.amount %></td>
-        </tr>
-    <% end %>
- </tbody>
+<div class="card mb-4">
+  <div class="card-body d-flex justify-content-between align-items-center">
+    <img src="<%= @category.icon %>" alt="<%= @category.name %>" width="100" height="100" />
+    <div>
+      <p class="fw-semibold"><%= @category.name %></p>
+      <p class="fw-light"><%= l @category.updated_at, format: :long %></p>
+    </div>
+    <p class="fw-bolder">
+      $<%= @category.total_expenses %>
+    </p>
+  </div>
+</div>
+<table class="table">
+   <thead class="table-success">
+      <tr>
+         <th scope="col">#</th>
+         <th scope="col">Expense</th>
+         <th scope="col">Amount</th>
+      </tr>
+   </thead>
+   <tbody>
+      <% @expenses.each_with_index do |expense, index| %>
+         <tr>
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= expense.name %></td>
+            <td>$ <%= expense.amount %></td>
+         </tr>
+      <% end %>
+   </tbody>
 </table>
 
-<%= link_to 'Back', categories_path %> |
-<%= link_to 'New Expense', new_category_expense_path(@category) %>
+<%= link_to ' Back', categories_path, class: "fa fa-chevron-left fa-lg mb-3" %>
+<%= link_to 'New Expense', new_category_expense_path(@category), class: "btn btn-primary fixed-bottom" %>

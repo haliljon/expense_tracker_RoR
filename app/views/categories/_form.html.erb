@@ -1,24 +1,15 @@
-<% if @category.errors.any? %>
-    <h2>The following errors prevented the category from being saved:</h2>
-    <ul>
-        <% @category.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-    </ul>
-<% end %>
-
 <%= form_with(model: @category, local: true) do |form| %>
-    <div class="field">
+    <div class="mb-3">
         <%= form.label :name %>
-        <%= form.text_field :name %>
+        <%= form.text_field :name, class: 'form-control', placeholder: 'Category name' %>
     </div>
 
-    <div class="field">
-        <%= form.label :icon_link %>
-        <%= form.text_field :icon %>
+    <div class="mb-3">
+        <%= form.label :icon %>
+        <%= form.url_field :icon, class: 'form-control', placeholder: 'Icon url' %>
     </div>
 
-    <div class="actions">
-        <%= form.submit %>
+    <div class="mb-3">
+        <%= form.submit 'Create Category', class: 'btn btn-primary' %>
     </div>
 <% end %>

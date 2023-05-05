@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Category', type: :request do
   include Devise::Test::IntegrationHelpers
   before do
-    user=User.create(full_name: 'Haliljon', email: 'xaliljon1994@gmail.uz', password: '123456')
+    user = User.create(full_name: 'Haliljon', email: 'xaliljon1994@gmail.uz', password: '123456')
     sign_in user
   end
   context 'GET /' do

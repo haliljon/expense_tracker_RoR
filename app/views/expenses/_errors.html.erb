@@ -1,0 +1,13 @@
+<% if @expense.errors.any? %>
+    <div class="alert alert-danger">
+     <h4>The following errors prevented the expense from being saved:</h4>
+     <div class='d-flex justify-content-between'>
+     <ul>
+        <% @expense.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+     </ul>
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+     </div>
+    </div>
+<% end %>

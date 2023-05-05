@@ -1,10 +1,10 @@
-<h1>List of categories</h1>
+<h2 class="mb-3">List of categories</h2>
 
 <% if @categories.empty? %>
   <p>There are no categories yet.</p>
 <% else %>
-    <table id="categories">
-        <thead>
+    <table class="table">
+        <thead class="table-success">
             <tr>
                 <th>Icon</th>
                 <th>Name</th>
@@ -19,8 +19,8 @@
             <td><%= link_to category.name, category_expenses_path(category) %></td>
             <td><p>$ <%= category.total_expenses %></p></td>
             <td>
-                <%= link_to 'Edit', edit_category_path(category) %> |
-                <%= link_to 'Delete', category_path(category), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete?' } %>
+                <%= link_to 'Edit', edit_category_path(category), class: "btn btn-secondary btn-sm" %>  
+                <%= link_to 'Delete', category_path(category), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete?' }, class: "btn btn-secondary btn-sm" %>
             </td>
         </tr>
         <% end %>
@@ -28,4 +28,4 @@
     </table>
 <% end %>
 
-<%= link_to 'New Category', new_category_path %>
+<%= link_to 'New Category', new_category_path, class: "btn btn-primary fixed-bottom" %>

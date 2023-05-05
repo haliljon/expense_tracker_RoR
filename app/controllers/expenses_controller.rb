@@ -15,9 +15,11 @@ class ExpensesController < ApplicationController
 
     respond_to do |format|
       if @expense.save
+        flash[:notice] = 'Expense was successfully created.'
         format.html { redirect_to category_expenses_path(@category) }
         format.json { render :show, status: :created, location: @expense }
       else
+        flash[:notice] = 'Expense was not created.'
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @expense.errors, status: :unprocessable_entity }
       end

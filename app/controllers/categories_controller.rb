@@ -18,9 +18,11 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
+        flash[:notice] = 'Category was successfully created.'
         format.html { redirect_to categories_path }
         format.json { render :show, status: :created, location: @category }
       else
+        flash[:notice] = 'Category was not created.'
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
@@ -38,6 +40,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
+    flash[:notice] = 'Category was successfully deleted.'
     redirect_to categories_path
   end
 

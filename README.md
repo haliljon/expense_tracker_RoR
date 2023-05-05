@@ -92,7 +92,7 @@ Clone this repository to your desired folder:
   cd my-folder
   git clone https://github.com/haliljon/expense_tracker_RoR.git
 
-  cd blog_app
+  cd expense_tracker_RoR
 
   bundle install
 

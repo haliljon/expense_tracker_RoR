@@ -1,12 +1,12 @@
 databases:
   - name: postgres
     ipAllowList: []
-    databaseName: expense_tracker_RoR
-    user: expense_tracker_RoR
+    databaseName: expense_tracker
+    user: expense_tracker
 
 services:
   - type: web
-    name: my_app_render
+    name: expense_tracker
     env: ruby
     buildCommand: './render-build.sh'
     startCommand: 'bundle exec rails s'

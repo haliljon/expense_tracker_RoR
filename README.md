@@ -105,6 +105,8 @@ Clone this repository to your desired folder:
 
 - [Demo Video](https://drive.google.com/file/d/1N2PBY6U7CWSM0wSaKKQyAnjFB2bzKilW/view?usp=sharing)
 
+- [Demo Link](https://expense-tracker-7flf.onrender.com/)
+
 ## 👥 Author <a name="author"></a>
 
 👤 **Haliljon Juraboev**

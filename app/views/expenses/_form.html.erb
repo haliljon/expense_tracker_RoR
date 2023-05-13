@@ -1,0 +1,20 @@
+<%= form_with(model: @expense, url: category_expenses_path, local: true) do |form| %>
+    <div class="mb-3">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: 'form-control', placeholder: 'Expense name' %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.label :Enter_amount %>
+        <%= form.text_field :amount, class: 'form-control', placeholder: 12, type: "number", step: ".01" %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.label :Choose_a_category %>
+        <%= form.collection_select :category_id, Category.all, :id, :name, class: 'form-select' %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.submit 'Create Expense', class: 'btn btn-primary' %>
+    </div>
+<% end %>

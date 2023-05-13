@@ -1,0 +1,31 @@
+<h2 class="mb-3">List of categories</h2>
+
+<% if @categories.empty? %>
+  <p>There are no categories yet.</p>
+<% else %>
+    <table class="table">
+        <thead class="table-success">
+            <tr>
+                <th>Icon</th>
+                <th>Name</th>
+                <th>Total expenses</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @categories.each do |category| %>
+        <tr>
+            <td><img src="<%= category.icon %>" alt="<%= category.name %>" width="100" height="100" /></td>
+            <td><%= link_to category.name, category_expenses_path(category) %></td>
+            <td><p>$ <%= category.total_expenses %></p></td>
+            <td>
+                <%= link_to 'Edit', edit_category_path(category), class: "btn btn-secondary btn-sm" %>  
+                <%= link_to 'Delete', category_path(category), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete?' }, class: "btn btn-secondary btn-sm" %>
+            </td>
+        </tr>
+        <% end %>
+        </tbody>
+    </table>
+<% end %>
+
+<%= link_to 'New Category', new_category_path, class: "btn btn-primary fixed-bottom" %>
